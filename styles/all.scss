@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+html,body{
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$red: red;
+$black: black;
+$gray: #eee;
+$white: #fff;
+$yellow: #FFF7B0;
+$green: green;
+
+@mixin flex ($column,$center){
+    display: flex;
+    flex-direction: $column;
+    justify-content: $center;
+    align-items: center;
+}
+@mixin box ($width, $height) {
+    width: $width;
+    height: $height;
+}
+.clock{
+    @include box(400px,400px);
+    background-image: url(../images/時鐘.png);
+    background-size: cover;
+    .clock-face{
+        @include box(100%, 100%);
+        @include flex(column,center);
+        position: relative;
+        border-radius: 100%;
+        &::after{
+            @include box(10px, 10px);
+            position: absolute;
+            content: '';
+            display: block;
+            border-radius: 100%;
+            background-color: $green;
+        }
+        .hand{
+            position: absolute;
+            @include box(100%, 100%);
+        }
+        .min-hand, .second-hand, .hour-hand{
+            @include flex(column, center);
+            &::after{
+                position: absolute;
+                content: '';
+                display: block;
+                left: 50%;
+                bottom: 50%;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        .hour-hand::before{
+            content: '♥';
+            height: 47%;
+            color: $red;
+        }
+        .hour-hand::after{
+            width: 8px;
+            height: 20%;
+            border-radius: 10px 10px 0 0;
+            background-color: $red;
+        }
+        .min-hand::after{
+            width: 8px;
+            height: 30%;
+            border-radius: 10px 10px 0 0;
+            background-color: $red;
+        }
+        .min-hand::before{
+            content: '♣';
+            height: 68%;
+            color: $red;
+        }
+        .second-hand::before{
+            content: '♠';
+            height: 85%;
+        }
+        .second-hand::after{
+            width: 2px;
+            height: 40%;
+            background-color: $black;
+        }
+
+    }
+    .clock-digital{
+        margin-top: 2rem;
+        background-color: $gray;
+        .daytime{
+            @include flex(column, center);
+            @include box(400px, 50px);
+            font-size: 1.5em;
+            letter-spacing: .5rem;
+            font-weight: 600;
+            background-color: $red;
+            color: $white;
+        }
+        .time{
+            display: flex;
+            .box{
+                @include flex(column, center);
+                @include box (100px, 100px);
+                background-color: $yellow;
+                font-size: 4rem;
+            }
+            .smallbox{
+                @include flex(column, center);
+                @include box(50px, 80px);
+                font-size: 4rem;
+            }
+        }
+    }
+}
+

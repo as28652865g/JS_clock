@@ -1,0 +1,128 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+html, body {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock {
+  width: 400px;
+  height: 400px;
+  background-image: url(../images/時鐘.png);
+  background-size: cover;
+}
+.clock .clock-face {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 100%;
+}
+.clock .clock-face::after {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  content: "";
+  display: block;
+  border-radius: 100%;
+  background-color: green;
+}
+.clock .clock-face .hand {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.clock .clock-face .min-hand, .clock .clock-face .second-hand, .clock .clock-face .hour-hand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.clock .clock-face .min-hand::after, .clock .clock-face .second-hand::after, .clock .clock-face .hour-hand::after {
+  position: absolute;
+  content: "";
+  display: block;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 0);
+}
+.clock .clock-face .hour-hand::before {
+  content: "♥";
+  height: 47%;
+  color: red;
+}
+.clock .clock-face .hour-hand::after {
+  width: 8px;
+  height: 20%;
+  border-radius: 10px 10px 0 0;
+  background-color: red;
+}
+.clock .clock-face .min-hand::after {
+  width: 8px;
+  height: 30%;
+  border-radius: 10px 10px 0 0;
+  background-color: red;
+}
+.clock .clock-face .min-hand::before {
+  content: "♣";
+  height: 68%;
+  color: red;
+}
+.clock .clock-face .second-hand::before {
+  content: "♠";
+  height: 85%;
+}
+.clock .clock-face .second-hand::after {
+  width: 2px;
+  height: 40%;
+  background-color: black;
+}
+.clock .clock-digital {
+  margin-top: 2rem;
+  background-color: #eee;
+}
+.clock .clock-digital .daytime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 50px;
+  font-size: 1.5em;
+  letter-spacing: 0.5rem;
+  font-weight: 600;
+  background-color: red;
+  color: #fff;
+}
+.clock .clock-digital .time {
+  display: flex;
+}
+.clock .clock-digital .time .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: #FFF7B0;
+  font-size: 4rem;
+}
+.clock .clock-digital .time .smallbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 80px;
+  font-size: 4rem;
+}/*# sourceMappingURL=all.css.map */
